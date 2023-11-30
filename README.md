@@ -1,2 +1,2 @@
 # ChatBot-With-GPT-Model
-ChatBot website yang menggunakan teknologi NLP (Natural Language Processing) untuk merespon
+ChatBot yang menggunakan GPT Model dengan model bahasa buatan dengan arsitektur transformer dan NLP (Natural Language Processing)
