@@ -14,28 +14,16 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useToast } from '@/components/ui/use-toast'
 import { useState } from "react";
 
 export function Header() {
-
-    const { toast } = useToast()
 
     const [openDialog, setOpenDialog] = useState(false)
 
     const copyPath = async () => {
         const textType = 'URL';
         const text = 'https://zyranova.vercel.app/';
-        try {
-            await navigator.clipboard.writeText(text);
-            toast({
-                description: `${textType} Copied!`,
-            });
-          } catch (error) {
-            toast({
-                description: `${textType} Cant Copied`,
-            });
-          }
+        navigator.clipboard.writeText(text);
     }
 
   return (
@@ -70,9 +58,6 @@ export function Header() {
             </div>
             <Button type="submit" size="sm" className=" bg-[#03B96B] rounded-[3px] hover:bg-[#03B96B]" onClick={() => {
                 copyPath()
-                toast({
-                    description: "Your message has been sent.",
-                })
                 }}>
                 <span className="sr-only">Copy</span>
                 <Icons.copy/>
