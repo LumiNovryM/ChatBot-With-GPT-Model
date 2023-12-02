@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/ui/toaster"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -14,7 +15,8 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
-        </body>
+        <Toaster/>
+      </body>
     </html>
   )
 }

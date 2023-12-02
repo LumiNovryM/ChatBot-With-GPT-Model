@@ -15,15 +15,32 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
+import { useToast } from "@/components/ui/use-toast";
 
 export function Header() {
 
+    const { toast } = useToast()
     const [openDialog, setOpenDialog] = useState(false)
-
     const copyPath = async () => {
         const textType = 'URL';
         const text = 'https://zyranova.vercel.app/';
-        navigator.clipboard.writeText(text);
+        
+        try{
+          navigator.clipboard.writeText(text);
+          toast({
+            description: `${textType} copied successfully!`,
+            style: {
+              background: "#14201A",
+              color: "white",
+              border: "1px solid #03B96B",
+              borderRadius: "5px"
+            }
+          })
+        }catch{
+          toast({
+            description: `${textType} failed to copy!`
+          })
+        }
     }
 
   return (
@@ -52,7 +69,7 @@ export function Header() {
                 <Input
                 className="border-[#03B96B] text-white rounded-[3px]"
                 id="link"
-                defaultValue="https://zyranova.vercel.app/"
+                defaultValue="https://github.com/LumiNovryM/ChatBot-With-GPT-Model"
                 readOnly
                 />
             </div>
