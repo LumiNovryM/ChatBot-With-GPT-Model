@@ -13,9 +13,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+      </head>
+      <body className="show-chatbot">
         {children}
         <Toaster/>
+        <script src="/script/script.js"></script>
       </body>
     </html>
   )
